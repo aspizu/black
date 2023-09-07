@@ -23,12 +23,12 @@ CURRENT_DIR = Path(__file__).parent
 
 
 def make_pypi_svg(version: str) -> None:
-    template: Path = CURRENT_DIR / "_static" / "pypi_template.svg"
-    target: Path = CURRENT_DIR / "_static" / "pypi.svg"
-    with open(str(template), "r", encoding="utf8") as f:
-        svg: str = string.Template(f.read()).substitute(version=version)
-    with open(str(target), "w", encoding="utf8") as f:
-        f.write(svg)
+   template: Path = CURRENT_DIR / "_static" / "pypi_template.svg"
+   target: Path = CURRENT_DIR / "_static" / "pypi.svg"
+   with open(str(template), "r", encoding="utf8") as f:
+      svg: str = string.Template(f.read()).substitute(version=version)
+   with open(str(target), "w", encoding="utf8") as f:
+      f.write(svg)
 
 
 # Necessary so Click doesn't hit an encode error when called by
@@ -47,7 +47,7 @@ release = get_distribution("black").version.split("+")[0]
 # The short X.Y version.
 version = release
 for sp in "abcfr":
-    version = version.split(sp)[0]
+   version = version.split(sp)[0]
 
 make_pypi_svg(release)
 
@@ -61,12 +61,12 @@ needs_sphinx = "4.4"
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "sphinx.ext.autodoc",
-    "sphinx.ext.intersphinx",
-    "sphinx.ext.napoleon",
-    "myst_parser",
-    "sphinxcontrib.programoutput",
-    "sphinx_copybutton",
+   "sphinx.ext.autodoc",
+   "sphinx.ext.intersphinx",
+   "sphinx.ext.napoleon",
+   "myst_parser",
+   "sphinxcontrib.programoutput",
+   "sphinx_copybutton",
 ]
 
 # If you need extensions of a certain version or higher, list them here.
@@ -105,10 +105,10 @@ myst_heading_anchors = 3
 # Prettier support formatting some MyST syntax but not all, so let's disable the
 # unsupported yet still enabled by default ones.
 myst_disable_syntax = [
-    "colon_fence",
-    "myst_block_break",
-    "myst_line_comment",
-    "math_block",
+   "colon_fence",
+   "myst_block_break",
+   "myst_line_comment",
+   "math_block",
 ]
 
 # Optional MyST Syntaxes
@@ -150,13 +150,13 @@ htmlhelp_basename = "blackdoc"
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (
-        master_doc,
-        "black.tex",
-        "Documentation for Black",
-        "Łukasz Langa and contributors to Black",
-        "manual",
-    )
+   (
+      master_doc,
+      "black.tex",
+      "Documentation for Black",
+      "Łukasz Langa and contributors to Black",
+      "manual",
+   )
 ]
 
 
@@ -173,15 +173,15 @@ man_pages = [(master_doc, "black", "Documentation for Black", [author], 1)]
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (
-        master_doc,
-        "Black",
-        "Documentation for Black",
-        author,
-        "Black",
-        "The uncompromising Python code formatter",
-        "Miscellaneous",
-    )
+   (
+      master_doc,
+      "Black",
+      "Documentation for Black",
+      author,
+      "Black",
+      "The uncompromising Python code formatter",
+      "Miscellaneous",
+   )
 ]
 
 
